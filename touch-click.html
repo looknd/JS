@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> HTML5触屏事件详解</title>
+	<meta charset="utf-8">
+	<style>
+		p{
+			margin-bottom: 20px;
+			width:150px;
+			height:150px;
+			border:1px solid #ddd;
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<P style="background: red">点我啊</P>
+	<p style="background: green">按住别放</p>
+<script>
+	window.onload =function(){
+		var body = document.getElementsByTagName('body')
+		body = body[0]
+
+		body.addEventListener('touchstart',function(){
+			console.log('touch')
+		},false)
+		body.addEventListener('touchmove',function(){
+			console.log('move')
+		},false)
+		body.addEventListener('click',function(){
+			console.log('click')
+		},false)
+		body.addEventListener('mousedown',function(){
+			console.log('mousedow')
+		},false)
+		body.addEventListener('mouseup',function(){
+			console.log('mouseup')
+		},false)
+		body.addEventListener('touchend',function(){
+			console.log('touchend')
+		},false)
+
+	}
+
+// 只点击一下，会触发touch,touchend,mousedown,mouseup,click
+// 如果是按住拖动的话，会触发touch,move,touchend,并不会出发click,mousedown,mouseup事件
+</script>
+</body>
+</html>
